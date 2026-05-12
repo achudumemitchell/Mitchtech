@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mitch Tech Portfolio</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#000;
+            font-family:'Poppins', sans-serif;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            background:#050505;
+            border-bottom:1px solid rgba(255,102,0,0.3);
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            color:#ff6600;
+            font-size:32px;
+            font-weight:700;
+            letter-spacing:2px;
+            text-shadow:0 0 10px rgba(255,102,0,0.6);
+        }
+
+        nav ul{
+            display:flex;
+            gap:25px;
+            list-style:none;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#ff6600;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero{
+            min-height:90vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:40px 20px;
+            background:
+            linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+            url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop')
+            center/cover;
+        }
+
+        .hero-content{
+            max-width:800px;
+        }
+
+        .hero h1{
+            font-size:70px;
+            color:#ff6600;
+            margin-bottom:20px;
+            text-shadow:0 0 20px rgba(255,102,0,0.7);
+        }
+
+        .hero h2{
+            font-size:30px;
+            margin-bottom:15px;
+            color:white;
+        }
+
+        .hero p{
+            color:#cccccc;
+            line-height:1.8;
+            font-size:18px;
+            margin-bottom:35px;
+        }
+
+        .hero-buttons{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:15px 35px;
+            border-radius:50px;
+            text-decoration:none;
+            font-weight:600;
+            transition:0.4s;
+            border:2px solid #ff6600;
+        }
+
+        .btn-orange{
+            background:#ff6600;
+            color:white;
+        }
+
+        .btn-orange:hover{
+            background:white;
+            color:#ff6600;
+        }
+
+        .btn-dark{
+            background:transparent;
+            color:#ff6600;
+        }
+
+        .btn-dark:hover{
+            background:#ff6600;
+            color:white;
+        }
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-title{
+            text-align:center;
+            padding-top:80px;
+            margin-bottom:50px;
+        }
+
+        .section-title h2{
+            color:#ff6600;
+            font-size:45px;
+            margin-bottom:10px;
+        }
+
+        .section-title p{
+            color:#aaa;
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery{
+            width:100%;
+            max-width:850px;
+            margin:auto;
+            padding:0 20px 60px;
+        }
+
+        .card{
+            background:#111;
+            border:2px solid rgba(255,102,0,0.5);
+            border-radius:25px;
+            overflow:hidden;
+            margin-bottom:40px;
+            transition:0.4s ease;
+            box-shadow:0 0 25px rgba(255,102,0,0.1);
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 30px rgba(255,102,0,0.5);
+        }
+
+        .card img{
+            width:100%;
+            display:block;
+        }
+
+        .card-content{
+            padding:25px;
+        }
+
+        .card-content h3{
+            color:#ff6600;
+            font-size:28px;
+            margin-bottom:12px;
+        }
+
+        .card-content p{
+            color:#ccc;
+            line-height:1.8;
+            margin-bottom:25px;
+        }
+
+        .view-btn{
+            display:inline-block;
+            padding:14px 30px;
+            border-radius:40px;
+            background:#ff6600;
+            color:white;
+            text-decoration:none;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .view-btn:hover{
+            background:white;
+            color:#ff6600;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about{
+            padding:100px 10%;
+            text-align:center;
+            background:#080808;
+            border-top:1px solid rgba(255,102,0,0.2);
+            border-bottom:1px solid rgba(255,102,0,0.2);
+        }
+
+        .about h2{
+            color:#ff6600;
+            font-size:45px;
+            margin-bottom:25px;
+        }
+
+        .about p{
+            max-width:850px;
+            margin:auto;
+            color:#ccc;
+            line-height:2;
+            font-size:18px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact{
+            padding:100px 20px;
+            text-align:center;
+        }
+
+        .contact h2{
+            color:#ff6600;
+            font-size:45px;
+            margin-bottom:20px;
+        }
+
+        .contact p{
+            color:#ccc;
+            margin-bottom:35px;
+        }
+
+        .socials{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .socials a{
+            text-decoration:none;
+            padding:15px 28px;
+            border:2px solid #ff6600;
+            color:#ff6600;
+            border-radius:40px;
+            transition:0.3s;
+            font-weight:600;
+        }
+
+        .socials a:hover{
+            background:#ff6600;
+            color:white;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer{
+            text-align:center;
+            padding:30px;
+            color:#666;
+            border-top:1px solid #111;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                gap:15px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:48px;
+            }
+
+            .hero h2{
+                font-size:24px;
+            }
+
+            .hero p{
+                font-size:16px;
+            }
+
+            .section-title h2,
+            .about h2,
+            .contact h2{
+                font-size:35px;
+            }
+
+            .card-content h3{
+                font-size:22px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">MITCH TECH</div>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>MITCH TECH</h1>
+
+            <h2>Creative Graphic Designer & Brand Creator</h2>
+
+            <p>
+                I create modern flyers, social media designs,
+                event graphics, branding concepts and promotional visuals
+                that help businesses, churches and brands stand out professionally.
+            </p>
+
+            <div class="hero-buttons">
+                
+                <a href="#contact" class="btn btn-dark">Contact Me</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= WORKS TITLE ================= -->
+
+    <section id="works">
+
+        <div class="section-title">
+            <h2>Featured Works</h2>
+            <p>Tap any design to view full image</p>
+        </div>
+
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+
+    <div class="gallery">
+
+        <!-- WORK 1 -->
+        <div class="card">
+
+            <a href="a.png" target="_blank">
+                <img src="a.png" alt="">
+            </a>
+
+            <div class="card-content">
+
+                <h3>April Flyer Design</h3>
+
+                <p>
+                    A modern and clean flyer design created for a monthly celebration campaign.
+                </p>
+
+                <a href="a.png" target="_blank" class="view-btn">
+                    Click To View
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- WORK 2 -->
+        <div class="card">
+
+            <a href="b.png" target="_blank">
+                <img src="b.png" alt="">
+            </a>
+
+            <div class="card-content">
+
+                <h3>Birthday Branding</h3>
+
+                <p>
+                    Elegant birthday celebration graphic with premium gold frame styling.
+                </p>
+
+                <a href="b.png" target="_blank" class="view-btn">
+                    Click To View
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- WORK 3 -->
+        <div class="card">
+
+            <a href="c.png" target="_blank">
+                <img src="c.png" alt="">
+            </a>
+
+            <div class="card-content">
+
+                <h3>Business Promotion</h3>
+
+                <p>
+                    Promotional flyer built for brand visibility and customer attraction.
+                </p>
+
+                <a href="c.png" target="_blank" class="view-btn">
+                    Click To View
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- WORK 4 -->
+        <div class="card">
+
+            <a href="d.png" target="_blank">
+                <img src="d.png" alt="">
+            </a>
+
+            <div class="card-content">
+
+                <h3>Church Announcement</h3>
+
+                <p>
+                    Bold announcement flyer designed with strong typography and layout balance.
+                </p>
+
+                <a href="d.png" target="_blank" class="view-btn">
+                    Click To View
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- WORK 5 -->
+        <div class="card">
+
+            <a href="e.png" target="_blank">
+                <img src="e.png" alt="">
+            </a>
+
+            <div class="card-content">
+
+                <h3>Freshers Summit Flyer</h3>
+
+                <p>
+                    Event summit promotional design with a professional and modern look.
+                </p>
+
+                <a href="e.png" target="_blank" class="view-btn">
+                    Click To View
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <h2>About Mitch Tech</h2>
+
+        <p>
+            Mitch Tech is a creative digital brand focused on delivering
+            high quality graphic designs, social media flyers,
+            event branding and promotional visuals.
+            We combine creativity and modern design trends to create
+            visuals that capture attention and communicate professionally.
+        </p>
+
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <h2>Contact Me</h2>
+
+        <p>
+            Let's work together and create something amazing for your brand.
+        </p>
+
+        <div class="socials">
+
+            <a href="https://wa.me/2349014677101" target="_blank">
+                WhatsApp
+            </a>
+
+            <a href="https://www.instagram.com/mitch__tech?igsh=aDZ4cnE0NHIzenRj/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="mailto:achudumemitchellmail@gmail.com">
+                Email Me
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        © 2026 MITCH TECH | All Rights Reserved
+    </footer>
+
+</body>
+</html>
