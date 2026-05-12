@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitch Tech | Portfolio</title>
+    <style>
+        :root {
+            --brand-orange: #ff6600;
+            --dark-bg: #0a0a0a;
+            --card-bg: #141414;
+        }
+
+        body { 
+            background-color: var(--dark-bg); 
+            color: #fff; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            overflow-x: hidden;
+        }
+
+        /* Creative Header */
+        header { 
+            padding: 80px 20px; 
+            background: linear-gradient(to bottom, #1a1a1a, var(--dark-bg));
+            border-bottom: 1px solid #333;
+        }
+
+        h1 { 
+            color: var(--brand-orange); 
+            font-size: clamp(40px, 8vw, 70px); 
+            margin: 0; 
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            color: #888;
+            letter-spacing: 3px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Gallery - One box at a time focus */
+        .gallery { 
+            display: flex; 
+            flex-direction: column; /* Forces one box per row */
+            align-items: center; 
+            padding: 40px 20px; 
+            gap: 60px; /* Big spacing between projects */
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 20px; 
+            width: 100%;
+            max-width: 600px; /* Large focus */
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid #222;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            border-color: var(--brand-orange);
+            box-shadow: 0 20px 40px rgba(255, 102, 0, 0.15);
+        }
+
+        /* Image Styling */
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #222;
+        }
+
+        img { 
+            width: 100%; 
+            height: auto; 
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Label Styling */
+        .card p { 
+            color: #fff; 
+            font-size: 18px;
+            font-weight: 600; 
+            margin: 20px 0 5px 0;
+            text-align: left;
+        }
+
+        .view-tag {
+            font-size: 12px;
+            color: var(--brand-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            text-align: left;
+        }
+
+        /* The "Click to View" Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        footer { margin: 100px 0 50px; color: #444; font-size: 12px; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MITCH <span style="color: #fff; font-weight: 200;">TECH</span></h1>
+        <div class="subtitle">PREMIUM DIGITAL SOLUTIONS</div>
+    </header>
+
+    <div class="gallery">
+        <div class="card" onclick="openImage('a.png')">
+            <div class="img-container"><img src="a.png" alt="Project 1"></div>
+            <p>Welcome to April</p>
+            <span class="view-tag">Click to enlarge</span>
+        </div>
+
+        <div class="card" onclick="openImage('b.png')">
+            <div class="img-container"><img src="b.png" alt="Project 2"></div>
+            <p>Happy Birthday Design</p>
+            <span class="view-tag">Click to enlarge</span>
+        </div>
+
+        <div class="card" onclick="openImage('c.png')">
+            <div class="img-container"><img src="c.png" alt="Project 3"></div>
+            <p>Hope Fulfilled Bookshop</p>
+            <span class="view-tag">Click to enlarge</span>
+        </div>
+
+        </div>
+
+    <div id="imageModal" class="modal" onclick="this.style.display='none'">
+        <img id="modalImg" src="">
+    </div>
+
+    <footer>
+        &copy; 2026 MITCH TECH &bull; ALL RIGHTS RESERVED
+    </footer>
+
+    <script>
+        function openImage(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
